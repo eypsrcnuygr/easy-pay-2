@@ -10,18 +10,20 @@
       </ul>
     </div>
   <% end %>
-
+<div class="text-center border border-dark w-lg-50 w-75 mx-auto mt-4 bg-light shadow general-form">
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest %>
+    <%= form.label :password %>
+    <%= form.text_field :password %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-success' %>
   </div>
+</div>
+
 <% end %>

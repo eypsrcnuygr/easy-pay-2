@@ -25,7 +25,7 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
-    @transaction.user = current_user
+    @transaction.author = current_user
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
@@ -70,6 +70,6 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:user_id, :name, :amount)
+    params.require(:transaction).permit(:author_id, :name, :amount)
   end
 end
