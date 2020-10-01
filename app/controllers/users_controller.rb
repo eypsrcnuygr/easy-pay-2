@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        session[:author_id] = @user.id
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' } if logged_in?
         format.json { render :show, status: :created, location: @user } if logged_in?
 

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation" id="navbar-button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <% if !logged_in? %>
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
+        <% else %>
+        <%= link_to 'Home', transactions_path, class: 'nav-link' %>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <% if logged_in? %>
+        <%= link_to 'New Transaction', new_transaction_path, class: 'nav-link' %>
+        <% else %>
+        <%= link_to 'New Transaction', new_transaction_path, class: 'nav-link disabled' %>
+      <% end %>
+      </li>
+      <li class="nav-item">
+        <% if logged_in? %>
+        <%= link_to 'All transactions', transactions_path, class: 'nav-link' %>
+      <% else %>
+      <%= link_to 'All transactions', transactions_path, class: 'nav-link disabled' %>
+      <% end %>
+      </li>
+      <li class="nav-item">
+        <% if logged_in? %>
+        <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %>
+        <% else %>
+        <%= link_to 'Login', login_path, class: 'nav-link' %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
