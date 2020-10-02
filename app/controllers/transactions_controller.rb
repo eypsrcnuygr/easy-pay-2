@@ -6,16 +6,19 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @transactions = Transaction.all
-    @user_transactions = current_user.transactions if current_user
+    @user_transactions = current_user.transactions.includes(:groups) if current_user
   end
 
   # GET /transactions/1
   # GET /transactions/1.json
-  def show; end
+  def show
+    @groups = @transaction.groups
+  end
 
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @group = Group.new
   end
 
   # GET /transactions/1/edit
@@ -24,10 +27,20 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
+
     @transaction = Transaction.new(transaction_params)
     @transaction.author = current_user
+
+    @group = Group.find_by(name: params[:group][:name])
+    @group.user = current_user
+    @group.save
+
+    @group.transactions << current_user.transactions
+
+
     respond_to do |format|
-      if @transaction.save
+      if @transaction.save 
+        @transaction.groups << @group
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
@@ -71,5 +84,9 @@ class TransactionsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def transaction_params
     params.require(:transaction).permit(:author_id, :name, :amount)
+  end
+
+  def group_params
+    params.require(:group).permit(:name, :icon, :user_id)
   end
 end

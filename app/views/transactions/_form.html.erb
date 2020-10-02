@@ -1,4 +1,4 @@
-<%= form_with(model: transaction, local: true) do |form| %>
+<%= form_for @transaction do |form| %>
   <% if transaction.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
@@ -19,6 +19,24 @@
   <div class="field">
     <%= form.label :amount %>
     <%= form.text_field :amount %>
+  </div>
+
+  <%= fields_for @group do |fa| %>
+  <div class="field">
+    <b>Groups</b><br />
+    <div class="d-flex">
+      <%= fa.radio_button :name, 'Music' %> Music<br />
+      <%= fa.radio_button :name, 'Sport' %> Sport<br />
+      <%= fa.radio_button :name, 'Food' %> Food<br />
+      <%= fa.radio_button :name, nil %> None<br />
+    </div>
+    <div class="d-flex">
+      <%= fa.radio_button :icon, 'Music' %> Music<br />
+      <%= fa.radio_button :icon, 'Sport' %> Sport<br />
+      <%= fa.radio_button :icon, 'Food' %> Food<br />
+      <%= fa.radio_button :icon, nil %> None<br />
+    </div>
+    <% end %>
   </div>
 
   <div class="actions">

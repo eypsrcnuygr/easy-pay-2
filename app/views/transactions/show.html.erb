@@ -6,8 +6,16 @@
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Transaction name:</strong>
   <%= @transaction.name %>
+</p>
+
+<p>
+  <strong>Group Name:</strong>
+  <% @transaction.groups.each do |group| %>
+    <%= group.name %>
+<% end %>
+
 </p>
 
 <p>

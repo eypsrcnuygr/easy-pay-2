@@ -6,4 +6,12 @@ module ApplicationHelper
   def logged_in?
     !!current_user
   end
+
+  def current_transaction
+    @current_transaction = current_user.transactions.last
+  end
+
+  def current_groups
+    @current_groups = current_transaction.groups
+  end
 end

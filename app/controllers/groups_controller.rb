@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  include ApplicationHelper
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
@@ -25,7 +26,7 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-
+    @group.transaction = current_user.transaction
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
