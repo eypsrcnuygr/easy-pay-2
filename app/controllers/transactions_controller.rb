@@ -1,7 +1,10 @@
 class TransactionsController < ApplicationController
   include ApplicationHelper
   before_action :set_transaction, only: %i[show edit update destroy]
+  after_action :icon_creator
   helper_method :icon_creator
+
+ 
   # GET /transactions
   # GET /transactions.json
   def index
@@ -33,16 +36,25 @@ class TransactionsController < ApplicationController
     @group = Group.find_by(name: params[:group][:name])
     @group = Group.new(group_params) if @group.nil?
     @group.user = current_user
-    @group.save
 
+    @transaction.groups.each do |group|
+      group.icon << icon_creator
+      
+    end
+
+    @group.save
+    binding(byebug)
+
+    
     @group.transactions << current_user.transactions
 
     @transaction.transaction_status = !(@group.name == 'on')
 
     respond_to do |format|
       if @transaction.save
-
         @transaction.groups << @group
+        
+
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
@@ -73,24 +85,6 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-
-  def icon_creator
-    @transaction.groups.each do |group|
-      if group.name == 'Music'
-        group.icon = '<i class="fas fa-guitar"></i>'
-      elsif group.name == 'Food'
-        group.icon = '<i class="fas fa-hamburger"></i>'
-      elsif group.name == 'Sport'
-        group.icon = "<i class='fas fa-swimmer'></i>"
-      elsif group.name == 'Rent'
-        group.icon = '<i class="fas fa-house-user"></i>'
-      else
-        group.icon = '<i class="fas fa-comment"></i>'
-      end
-      puts group.icon
-      return group.icon.html_safe
     end
   end
 
