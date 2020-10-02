@@ -3,6 +3,12 @@
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
+  <% @user.transactions.each do |transaction| %>
+  <%= transaction.name %>
+<% end %>
+<% @user.groups.each do |group| %>
+  <%= group.name %>
+<% end %>
 </p>
 
 

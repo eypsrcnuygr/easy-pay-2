@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
   include ApplicationHelper
   before_action :set_transaction, only: %i[show edit update destroy]
-
+  helper_method :icon_creator
   # GET /transactions
   # GET /transactions.json
   def index
@@ -27,19 +27,20 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-
     @transaction = Transaction.new(transaction_params)
     @transaction.author = current_user
 
     @group = Group.find_by(name: params[:group][:name])
+    @group = Group.new(group_params) if @group.nil?
     @group.user = current_user
     @group.save
-
     @group.transactions << current_user.transactions
 
+    @transaction.transaction_status = !(@group.name == 'on')
 
     respond_to do |format|
-      if @transaction.save 
+      if @transaction.save
+
         @transaction.groups << @group
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
@@ -71,6 +72,22 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def icon_creator
+    @transaction.groups.each do |group|
+      if group.name == 'Music'
+        return '<i class="fas fa-guitar"></i>'.html_safe
+      elsif group.name == 'Food'
+        return '<i class="fas fa-hamburger"></i>'.html_safe
+      elsif group.name == 'Sport'
+        return "<i class='fas fa-swimmer'></i>".html_safe
+      elsif group.name == 'Rent'
+        return '<i class="fas fa-house-user"></i>'.html_safe
+      else
+        return '<i class="fas fa-comment"></i>'.html_safe
+      end
     end
   end
 

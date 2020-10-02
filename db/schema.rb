@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_132647) do
+ActiveRecord::Schema.define(version: 2020_10_02_120512) do
 
   create_table "group_transactions", force: :cascade do |t|
     t.integer "group_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_132647) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "author_id", null: false
+    t.boolean "transaction_status"
     t.index ["author_id"], name: "index_transactions_on_author_id"
   end
 

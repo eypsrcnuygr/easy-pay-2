@@ -24,17 +24,13 @@
   <%= fields_for @group do |fa| %>
   <div class="field">
     <b>Groups</b><br />
+    
     <div class="d-flex">
-      <%= fa.radio_button :name, 'Music' %> Music<br />
-      <%= fa.radio_button :name, 'Sport' %> Sport<br />
-      <%= fa.radio_button :name, 'Food' %> Food<br />
-      <%= fa.radio_button :name, nil %> None<br />
-    </div>
-    <div class="d-flex">
-      <%= fa.radio_button :icon, 'Music' %> Music<br />
-      <%= fa.radio_button :icon, 'Sport' %> Sport<br />
-      <%= fa.radio_button :icon, 'Food' %> Food<br />
-      <%= fa.radio_button :icon, nil %> None<br />
+      <%= fa.radio_button :name, 'Music', class: 'mx-4' %> Music<br />
+      <%= fa.radio_button :name, 'Sport', class: 'mx-4' %> Sport<br />
+      <%= fa.radio_button :name, 'Food', class: 'mx-4' %> Food<br />
+      <%= fa.radio_button :name, 'Rent', class: 'mx-4' %> Rent<br />
+      <%= fa.radio_button :name, nil, class: 'mx-4' %> Something else<br />
     </div>
     <% end %>
   </div>
