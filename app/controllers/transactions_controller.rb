@@ -29,11 +29,12 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.author = current_user
-
+    
     @group = Group.find_by(name: params[:group][:name])
     @group = Group.new(group_params) if @group.nil?
     @group.user = current_user
     @group.save
+
     @group.transactions << current_user.transactions
 
     @transaction.transaction_status = !(@group.name == 'on')
@@ -78,16 +79,18 @@ class TransactionsController < ApplicationController
   def icon_creator
     @transaction.groups.each do |group|
       if group.name == 'Music'
-        return group.icon = '<i class="fas fa-guitar"></i>'.html_safe
+        group.icon = '<i class="fas fa-guitar"></i>'
       elsif group.name == 'Food'
-        return group.icon = '<i class="fas fa-hamburger"></i>'.html_safe
+        group.icon = '<i class="fas fa-hamburger"></i>'
       elsif group.name == 'Sport'
-        return group.icon = "<i class='fas fa-swimmer'></i>".html_safe
+        group.icon = "<i class='fas fa-swimmer'></i>"
       elsif group.name == 'Rent'
-        return group.icon = '<i class="fas fa-house-user"></i>'.html_safe
+        group.icon = '<i class="fas fa-house-user"></i>'
       else
-        return group.icon = '<i class="fas fa-comment"></i>'.html_safe
+        group.icon = '<i class="fas fa-comment"></i>'
       end
+      puts group.icon
+      return group.icon.html_safe
     end
   end
 

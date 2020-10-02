@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @internal_transactions = current_user.transactions.where(transaction_status: true)
+    @external_transactions = current_user.transactions.where(transaction_status: false)
+
   end
 
   # GET /users/new
