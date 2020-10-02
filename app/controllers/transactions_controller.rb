@@ -33,27 +33,22 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.author = current_user
     
-    @group = Group.find_by(name: params[:group][:name])
+    @group = @transaction.groups.find_by(name: params[:group][:name])
     @group = Group.new(group_params) if @group.nil?
     @group.user = current_user
-
-    @transaction.groups.each do |group|
-      group.icon << icon_creator
-      
-    end
-
-    @group.save
-    binding(byebug)
-
     
     @group.transactions << current_user.transactions
 
     @transaction.transaction_status = !(@group.name == 'on')
-
+    @icon_array = []
     respond_to do |format|
       if @transaction.save
         @transaction.groups << @group
-        
+        @transaction.groups.each do |group|
+          group.icon = icon_creator
+          @icon_array << group.icon
+        end
+        @group.save
 
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
