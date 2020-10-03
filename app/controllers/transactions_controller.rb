@@ -8,7 +8,16 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @transactions = Transaction.all
-    @user_transactions = current_user.transactions.includes(:groups) if current_user
+    @user_transactions = current_user.transactions.order('created_at DESC') if current_user
+    @total_amount = @user_transactions.sum(:amount)
+    @icons = []
+    @user_transactions.each do |transaction|
+      transaction.groups.each do |group|
+        @icons << group.icon
+      end
+    end
+
+    
   end
 
   # GET /transactions/1
