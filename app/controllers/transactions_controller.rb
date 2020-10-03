@@ -1,7 +1,6 @@
 class TransactionsController < ApplicationController
   include ApplicationHelper
   before_action :set_transaction, only: %i[show edit update destroy]
-  after_action :icon_creator, except: [:index]
   helper_method :icon_creator
 
  
@@ -45,7 +44,7 @@ class TransactionsController < ApplicationController
       if @transaction.save
         @transaction.groups << @group
         @transaction.groups.each do |group|
-          group.icon = icon_creator
+          group.icon = icon_creator(@transaction)
           @icon_array << group.icon
         end
         @group.save

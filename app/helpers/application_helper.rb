@@ -12,14 +12,13 @@ module ApplicationHelper
   end
 
   def current_groups
-    @current_groups = current_transaction.groups
+    @current_groups = current_transaction.groups.last
   end
 
-  def icon_creator
-    @transaction.groups.each do |group|
+  def icon_creator(obj)
+    obj.groups.each do |group|
       if group.name == 'Music'
         group.icon = '<i class="fas fa-guitar"></i>'
-        @variable = group.icon
       elsif group.name == 'Food'
         group.icon = '<i class="fas fa-hamburger"></i>'
       elsif group.name == 'Sport'
