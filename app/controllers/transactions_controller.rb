@@ -91,6 +91,20 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def assigned_transactions
+    @transactions = []
+    current_user.transactions.each do |transaction|
+      @transactions << transaction if transaction.transaction_status == true
+    end
+  end
+
+  def unassigned_transactions
+    @transactions = []
+    current_user.transactions.each do |transaction|
+      @transactions << transaction if transaction.transaction_status == false
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
