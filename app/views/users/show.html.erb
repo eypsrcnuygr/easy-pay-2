@@ -3,26 +3,31 @@
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
-  <% @user.groups.each do |group| %>
-  <%= group.name %>
-  <% end %>
 </p>
 <div>
-  <h3>These are my internal transactions</h3>
-  <% @internal_transactions.each do |transaction| %> 
-  
-  <p>The name of the transaction: <%= transaction.name %></p>
-  <% transaction.groups.each do |group| %>
-    <p>This is the group of the transaction <%= transaction.name %>: <%= group.name %></p>
-    <p>This is the icon of the transaction <%= transaction.name %>: <%= group.icon %></p>
+<h3>These are my internal transactions</h3>
+<% @internal_transactions.each do |transaction| %>
+  <ul>
+    <li><%= transaction.name %>
+  </ul>
 <% end %>
+</div>
+
+<div>
+  <h3>These are my external transactions</h3>
+  <% @external_transactions.each do |transaction| %>
+    <ul>
+      <li><%= transaction.name %>
+    </ul>
   <% end %>
 </div>
 
 <div>
-  <% @external_transactions.each do |transaction| %> 
-  <h3>These are my external transactions</h3>
-  <p>The name of the transaction: <%= transaction.name %></p>
+  <h3>These are all the groups</h3>
+  <% @groups.each do |group| %>
+    <ul>
+      <li><%= group.name %></li>
+    </ul>
   <% end %>
 </div>
 

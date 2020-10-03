@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     @internal_transactions = current_user.transactions.where(transaction_status: true)
     @external_transactions = current_user.transactions.where(transaction_status: false)
-
+    @groups = Group.select(:name).distinct
   end
 
   # GET /users/new

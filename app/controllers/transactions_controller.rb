@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
   include ApplicationHelper
   before_action :set_transaction, only: %i[show edit update destroy]
-  after_action :icon_creator
+  after_action :icon_creator, except: [:index]
   helper_method :icon_creator
 
  
