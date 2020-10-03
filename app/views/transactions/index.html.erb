@@ -8,7 +8,7 @@
       <th>User</th>
       <th>Name</th>
       <th>Amount</th>
-      <th>Group</th>
+   
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -20,9 +20,7 @@
       <td><%= transaction.author.name %></td>
       <td><%= transaction.name %></td>
       <td><%= transaction.amount %></td>
-      <% transaction.groups.each do |group| %>
-      <td><%= group.name %></td>
-      <% end %>
+   
       <td><%= link_to 'Show', transaction %></td>
       <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
       <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
