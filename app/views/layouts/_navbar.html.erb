@@ -33,6 +33,14 @@
         <%= link_to 'Login', login_path, class: 'nav-link' %>
         <% end %>
       </li>
-    </ul>
+      <li class="nav-item float-right">
+        <% if logged_in? %>
+        <%= link_to 'Profile', users_path(session[:author_id]), class: 'nav-link' %>
+        <% else %>
+        <%= link_to 'Login', login_path, class: 'nav-link' %>
+        <% end %>
+      </li> 
+
   </div>
+
 </nav>
