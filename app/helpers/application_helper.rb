@@ -32,4 +32,5 @@ module ApplicationHelper
       return group.icon.html_safe
     end
   end
+  
 end

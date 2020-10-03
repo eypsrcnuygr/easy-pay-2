@@ -1,31 +1,8 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Transactions</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-
-    </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-
-    </div>
-  </div>
+<div>
+  <h1 class="text-center">This is the total amount: <%= @total_amount %></h1>
 </div>
 
 
@@ -35,10 +12,10 @@
       <th>User</th>
       <th>Name</th>
       <th>Amount</th>
-      <th>Amount Total</th>
+      
       <th>Transaction Time</th>
       <th>Icon</th>
-      <th colspan="6"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -49,7 +26,7 @@
       <td><%= transaction.author.name %></td>
       <td><%= transaction.name %></td>
       <td><%= transaction.amount %></td>
-      <td><%= @total_amount %></td>
+      
       <td><%= transaction.created_at %></td>   
       <td><%= raw @icons[index] %></td>
       <td><%= link_to 'Show', transaction %></td>
