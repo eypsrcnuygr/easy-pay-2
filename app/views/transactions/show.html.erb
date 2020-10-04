@@ -14,7 +14,7 @@
   <strong>Group Name:</strong>
   <% @transaction.groups.each do |group| %>
     <%= group.name %>
-    <%= icon_creator(@transaction) %>
+    <%= raw @variable %>
 <% end %>
 
 </p>

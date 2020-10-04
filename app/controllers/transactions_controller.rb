@@ -9,14 +9,15 @@ class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.all
     @user_transactions = current_user.transactions.order('created_at DESC') if current_user
-    @total_amount = @user_transactions.sum(:amount)
+    @total_amount = @user_transactions.sum(:amount) if @user_transactions
     @icons = []
+    if @user_transactions
     @user_transactions.each do |transaction|
       transaction.groups.each do |group|
         @icons << group.icon
       end
     end
-
+  end
     
   end
 
@@ -24,6 +25,8 @@ class TransactionsController < ApplicationController
   # GET /transactions/1.json
   def show
     @groups = @transaction.groups
+    @variable = @groups.pluck(:icon).last
+    
   end
 
   # GET /transactions/new
@@ -45,8 +48,8 @@ class TransactionsController < ApplicationController
     @group = Group.new(group_params) if @group.nil?
     @group.user = current_user
     
-    @group.transactions << current_user.transactions
-
+    @group.transactions << current_user.transactions.last if current_user.transactions.nil?
+   
     @transaction.transaction_status = !(@group.name == 'on')
     @icon_array = []
     respond_to do |format|
@@ -55,6 +58,7 @@ class TransactionsController < ApplicationController
         @transaction.groups.each do |group|
           group.icon = icon_creator(@transaction)
           @icon_array << group.icon
+
         end
         @group.save
 
