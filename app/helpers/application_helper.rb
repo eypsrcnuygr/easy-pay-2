@@ -33,4 +33,12 @@ module ApplicationHelper
     end
   end
   
+  def check_box_variable_creator
+    a = []
+    @group_variable = Group.select(:name).distinct
+    @group_variable.each do |group|
+      a << group.name
+    end
+    a
+  end
 end
