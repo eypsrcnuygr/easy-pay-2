@@ -13,7 +13,7 @@
 <p>
   <strong>Group Name:</strong>
   <% @transaction.groups.each do |group| %>
-    <%= group.name %>
+    <%= link_to group.name, group_path(group) %>
     <%= raw @variable %>
 <% end %>
 
