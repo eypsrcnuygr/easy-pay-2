@@ -16,12 +16,14 @@ class UsersController < ApplicationController
     @external_transactions = current_user.transactions.where(transaction_status: false)
     @groups = Group.select(:name).distinct
 
+
     @icons = []
-    @external_transactions.each do |transaction|
+    current_user.transactions&.each do |transaction|
       transaction.groups.each do |group|
         @icons << group.icon
       end
     end
+
 
   end
 

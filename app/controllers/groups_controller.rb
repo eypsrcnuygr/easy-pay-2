@@ -5,12 +5,21 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.all.select(:name).distinct
+
+    @icons = []
+    current_user.transactions&.each do |transaction|
+      transaction.groups.each do |group|
+        @icons << group.icon
+      end
+    end
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
+
+  
   end
 
   # GET /groups/new

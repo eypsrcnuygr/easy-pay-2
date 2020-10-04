@@ -5,7 +5,7 @@
   <%= @user.name %>
 </p>
 <div>
-<h3>These are my internal transactions</h3>
+  <h3><%= link_to 'These are my internal transactions', assigned_path %></h3>
 <% @internal_transactions.each do |transaction| %>
   <ul>
     <li><%= transaction.name %></li>
@@ -14,7 +14,8 @@
 </div>
 
 <div>
-  <h3>These are my external transactions</h3>
+  <h3><%= link_to 'These are my external transactions', unassigned_path %></h3>
+  
   <% @external_transactions.each do |transaction| %>
     <ul>
       <li><%= transaction.name %></li>
@@ -23,10 +24,11 @@
 </div>
 
 <div>
-  <h3>These are all the groups</h3>
-  <% @groups.each do |group| %>
+  <h3><%= link_to 'These are all the groups', groups_path %></h3>
+  <% @groups.each_with_index do |group, index| %>
     <ul>
-      <li><%= group.name %></li>
+      <li><%= group.name %>|||<%= raw @icons[index] %></li>
+     
     </ul>
   <% end %>
 </div>
