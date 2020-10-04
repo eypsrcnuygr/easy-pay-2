@@ -5,7 +5,11 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all.select(:name).distinct
+    @groups = Group.all
+    @var_name = @groups.distinct.pluck(:name)
+    @var_icon = @groups.distinct.pluck(:icon)
+
+
 
     @icons = []
     current_user.transactions&.each do |transaction|
@@ -13,6 +17,8 @@ class GroupsController < ApplicationController
         @icons << group.icon
       end
     end
+
+   
   end
 
   # GET /groups/1
@@ -79,6 +85,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:name, :icon)
+      params.require(:group).permit(:name, :icon, :user_id)
     end
 end
