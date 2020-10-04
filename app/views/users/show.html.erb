@@ -27,7 +27,10 @@
   <h3><%= link_to 'These are all the groups', groups_path %></h3>
   <% @groups.each_with_index do |group, index| %>
     <ul>
-      <li><%= group.name %>|||<%= raw @icons[index] %></li>
+      <% current_user.groups.each do |f| %>
+        <% @a = f.id %>
+    <% end %>
+      <li><%= link_to group.name, group %>|||<%= raw @icons[index] %></li>
      
     </ul>
   <% end %>
