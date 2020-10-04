@@ -45,6 +45,9 @@ class TransactionsController < ApplicationController
 
     @group.transactions << current_user.transactions.last if current_user.transactions.nil?
 
+    @group_variable = Group.select(:name).distinct
+
+
     @transaction.transaction_status = !(@group.name == 'on')
     @icon_array = []
     respond_to do |format|
