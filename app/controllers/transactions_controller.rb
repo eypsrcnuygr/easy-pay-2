@@ -36,21 +36,23 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.new(transaction_params.except(:group))
+  
     @transaction.author = current_user
 
-    @group = @transaction.groups.find_by(name: params[:group][:name])
+    @group = @transaction.groups.find_by(name: params[:group][:name][1])
+ 
     @group = Group.new(group_params) if @group.nil?
     @group.user = current_user
 
     @group.transactions << current_user.transactions.last if current_user.transactions.nil?
 
-    @group_variable = Group.select(:name).distinct
-
 
     @transaction.transaction_status = !(@group.name == 'on')
     @icon_array = []
+
     respond_to do |format|
+      
       if @transaction.save
         @transaction.groups << @group
         @transaction.groups.each do |group|
@@ -105,6 +107,7 @@ class TransactionsController < ApplicationController
       @transactions << transaction if transaction.transaction_status == false
     end
   end
+
 
   private
 

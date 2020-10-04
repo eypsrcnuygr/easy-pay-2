@@ -21,16 +21,14 @@
     <%= form.text_field :amount %>
   </div>
 
-  <%= fields_for @group do |fa| %>
+  <%= simple_fields_for @group do |fa| %>
   <div class="field">
     <b>Groups</b><br />
     
     <div class="d-flex">
-      <%= fa.radio_button :name, 'Music', class: 'mx-4' %> Music<br />
-      <%= fa.radio_button :name, 'Sport', class: 'mx-4' %> Sport<br />
-      <%= fa.radio_button :name, 'Food', class: 'mx-4' %> Food<br />
-      <%= fa.radio_button :name, 'Rent', class: 'mx-4' %> Rent<br />
-      <%= fa.radio_button :name, nil, class: 'mx-4' %> Something else<br />
+      
+        <%= fa.input :name, as: :check_boxes, collection: check_box_variable_creator %>
+    
     </div>
     <% end %>
   </div>
