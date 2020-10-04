@@ -39,7 +39,9 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    @group.transaction = current_user.transaction
+    @group.transactions << current_user.transactions.last if current_user.transactions.nil?
+    @group.user = current_user
+    @icon_array = []
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }

@@ -30,7 +30,7 @@
       <% current_user.groups.each do |f| %>
         <% @a = f.id %>
     <% end %>
-      <li><%= link_to group.name, group %>|||<%= raw @icons[index] %></li>
+      <li><%= link_to group.name, group %>|||<%= raw group.icon %></li>
      
     </ul>
   <% end %>
