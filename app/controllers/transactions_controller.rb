@@ -3,7 +3,6 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[show edit update destroy]
   helper_method :icon_creator
 
- 
   # GET /transactions
   # GET /transactions.json
   def index
@@ -11,14 +10,11 @@ class TransactionsController < ApplicationController
     @user_transactions = current_user.transactions.order('created_at DESC') if current_user
     @total_amount = @user_transactions.sum(:amount) if @user_transactions
     @icons = []
-    if @user_transactions
-    @user_transactions.each do |transaction|
+    @user_transactions&.each do |transaction|
       transaction.groups.each do |group|
         @icons << group.icon
       end
     end
-  end
-    
   end
 
   # GET /transactions/1
@@ -26,7 +22,6 @@ class TransactionsController < ApplicationController
   def show
     @groups = @transaction.groups
     @variable = @groups.pluck(:icon).last
-    
   end
 
   # GET /transactions/new
@@ -43,13 +38,13 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.author = current_user
-    
+
     @group = @transaction.groups.find_by(name: params[:group][:name])
     @group = Group.new(group_params) if @group.nil?
     @group.user = current_user
-    
+
     @group.transactions << current_user.transactions.last if current_user.transactions.nil?
-   
+
     @transaction.transaction_status = !(@group.name == 'on')
     @icon_array = []
     respond_to do |format|
@@ -58,7 +53,6 @@ class TransactionsController < ApplicationController
         @transaction.groups.each do |group|
           group.icon = icon_creator(@transaction)
           @icon_array << group.icon
-
         end
         @group.save
 
