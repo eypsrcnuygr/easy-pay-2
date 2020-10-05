@@ -26,10 +26,10 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'hirb'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'pg'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 group :development, :test do
@@ -45,7 +45,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :test do
@@ -56,9 +55,7 @@ group :test do
   gem 'webdrivers'
 end
 
-group :production do
-  gem 'pg'
-end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
