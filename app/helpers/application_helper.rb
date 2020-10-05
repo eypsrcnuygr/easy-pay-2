@@ -14,31 +14,4 @@ module ApplicationHelper
   def current_groups
     @current_groups = current_transaction.groups.last
   end
-
-  def icon_creator(obj)
-    obj.groups.each do |group|
-      if group.name == 'Music'
-        group.icon = '<i class="fas fa-guitar"></i>'
-      elsif group.name == 'Food'
-        group.icon = '<i class="fas fa-hamburger"></i>'
-      elsif group.name == 'Sport'
-        group.icon = "<i class='fas fa-swimmer'></i>"
-      elsif group.name == 'Rent'
-        group.icon = '<i class="fas fa-house-user"></i>'
-      else
-        group.icon = '<i class="fas fa-comment"></i>'
-      end
-      puts group.icon
-      return group.icon.html_safe
-    end
-  end
-  
-  def check_box_variable_creator
-    a = []
-    @group_variable = Group.select(:name).distinct
-    @group_variable.each do |group|
-      a << group.name
-    end
-    a
-  end
 end

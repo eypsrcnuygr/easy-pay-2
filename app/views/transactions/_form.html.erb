@@ -21,15 +21,16 @@
     <%= form.text_field :amount %>
   </div>
 
-  <%= simple_fields_for @group do |fa| %>
-  <div class="field">
-    <b>Groups</b><br />
     
     <div class="d-flex">
-      <%= fa.input :name, as: :radio_buttons, collection: check_box_variable_creator %>
-      
+      <%= form.collection_check_boxes :groups, Group.all, :id, :name do |b| %>
+      <div class="collection-check-box" style='display:flex'>
+      <%= b.check_box %>
+      <%= b.label %>
     </div>
-    <% end %>
+<% end %> 
+    </div>
+
   </div>
   <div class="actions">
     <%= form.submit %>

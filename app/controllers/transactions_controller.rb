@@ -6,22 +6,15 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
     @user_transactions = current_user.transactions.order('created_at DESC') if current_user
     @total_amount = @user_transactions.sum(:amount) if @user_transactions
-    @icons = []
-    @user_transactions&.each do |transaction|
-      transaction.groups.each do |group|
-        @icons << group.icon
-      end
-    end
   end
 
   # GET /transactions/1
   # GET /transactions/1.json
   def show
     @groups = @transaction.groups
-    @variable = @groups.pluck(:icon).last
+    binding(byebug)
   end
 
   # GET /transactions/new
@@ -36,29 +29,31 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.new(transaction_params.except(:groups))
     @transaction.author = current_user
-
-    @group = @transaction.groups.find_by(name: params[:group][:name])
-    @group = Group.new(group_params) if @group.nil?
-    @group.user = current_user
-
-    @group.transactions << current_user.transactions.last if current_user.transactions.nil?
-
-    @group_variable = Group.select(:name).distinct
+    @groups = Group.all
 
 
-    @transaction.transaction_status = !(@group.name == 'on')
-    @icon_array = []
+
+
     respond_to do |format|
+   
       if @transaction.save
-        @transaction.groups << @group
-        @transaction.groups.each do |group|
-          group.icon = icon_creator(@transaction)
-          @icon_array << group.icon
+        transaction_params.slice(:groups).values.each do |x|
+          x.each do |y|
+            if y.empty?
+            else
+              group = @groups.find(y.to_i)
+              @transaction.groups << group
+              if group.name.empty?
+                @transaction.transaction_status = false
+              else
+                @transaction.transaction_status = true
+              end
+            end
+          end
         end
-        @group.save
-        
+
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
@@ -115,7 +110,7 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:author_id, :name, :amount)
+    params.require(:transaction).permit(:author_id, :name, :amount, groups: [])
   end
 
   def group_params

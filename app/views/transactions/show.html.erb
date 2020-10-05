@@ -12,9 +12,9 @@
 
 <p>
   <strong>Group Name:</strong>
-  <% @transaction.groups.each do |group| %>
+  <% @groups.each do |group| %>
     <%= link_to group.name, group_path(group) %>
-    <%= raw @variable %>
+    <%= raw group.icon %>
 <% end %>
 
 </p>
