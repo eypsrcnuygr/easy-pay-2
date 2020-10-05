@@ -16,7 +16,7 @@
       <th>Transaction Time</th>
       <th>Icon</th>
      
-      <th colspan="5"></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
@@ -33,7 +33,7 @@
       <% transaction.groups.each do |group| %>
    
        <td><%= link_to group.icon.html_safe, transaction %></td> 
-       <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
     <% end %>
 
    
