@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     @internal_transactions = current_user.transactions.where(transaction_status: true)
     @external_transactions = current_user.transactions.where(transaction_status: false) 
-    @groups = Group.all.select(:name, :id, :icon).group('groups.id').group(:name)
+    @groups = Group.all.select(:name, :id, :icon).group('groups.id').group(:name).where(user_id: session[:author_id])
 
   end
 
