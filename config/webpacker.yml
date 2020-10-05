@@ -47,7 +47,7 @@ default: &default
     - .gif
     - .jpeg
     - .jpg
-
+    - .jsx
 development:
   <<: *default
   compile: true
