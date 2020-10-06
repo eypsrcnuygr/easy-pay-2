@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-    @groups = Group.all.where(name: @group.name)
+    @groups = current_user.groups.where(name: @group.name)
     
   end
 
