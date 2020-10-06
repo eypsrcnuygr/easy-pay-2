@@ -1,2 +1,84 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+html {
+  font-size: 18px;
+} 
+
+body {
+  background-color: rgb(197, 197, 197) !important;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #434b54 !important;
+  & table {
+    font-size: 18px;
+
+    & td {
+      font-size: 18px;
+    }
+  }
+
+  & ul {
+    font-size: 16px;
+  }
+
+  & p {
+    font-size: 16px;
+  }
+  & .general-form {
+    font-size: 1rem !important;
+    height: 400px;
+    padding-top: 4%;
+  }
+
+  & nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    background-color: #3778c2 !important;
+    
+    & ul {
+      font-size: 1rem !important;
+    }
+  }
+
+  & .jumbotron {
+    margin-top: 2%;
+    opacity: 0.8;
+    background-image: asset-url("/assets/images/jumbo.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+
+
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  body {
+
+    & .jumbotron {
+      height: 40vh;
+    }
+
+    & .general-form {
+      height: 50vh !important;
+      font-size: 2rem !important;
+      padding-top: 8%;
+    }
+
+    & nav {
+
+      & ul {
+        font-size: 1.2rem !important;
+      }
+
+      & button {
+        font-size: 1.7rem !important;
+      }
+    }
+  }
+
+}
