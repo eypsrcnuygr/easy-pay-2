@@ -6,8 +6,10 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @user_transactions = current_user.transactions.order('created_at DESC') if current_user
-    @total_amount = @user_transactions.sum(:amount) if @user_transactions
+    @user_transactions = current_user.transactions.order('created_at DESC').includes(:author, :group_transactions, :groups) if current_user
+
+    @total_amount = @user_transactions.distinct(:name).sum(:amount) if @user_transactions
+
   end
 
   # GET /transactions/1

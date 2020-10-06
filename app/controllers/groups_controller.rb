@@ -5,18 +5,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all.group('groups.id').group(:name).where(user_id: session[:author_id])
-
-   
-
-    @icons = []
-    current_user.transactions&.each do |transaction|
-      transaction.groups.each do |group|
-        @icons << group.icon
-      end
-    end
-
-   
+    @groups = Group.all.group('groups.id').group(:name).where(user_id: session[:author_id])  
   end
 
   # GET /groups/1
