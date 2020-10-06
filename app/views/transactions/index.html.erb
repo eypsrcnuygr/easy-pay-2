@@ -1,12 +1,12 @@
-
+<div class="bg-light my-4 p-4 shadow">
 <h1>Transactions</h1>
 
 <div>
-  <h1 class="text-center">This is the total amount: <%= @total_amount %></h1>
+  <h4 class="text-center">This is the total amount: <%= @total_amount %></h4>
 </div>
 
 
-<table>
+<table class="w-100 m-0">
   <thead>
     <tr>
       <th>User</th>
@@ -32,7 +32,7 @@
 
       <% transaction.groups.each do |group| %>
    
-       <td><%= link_to group.icon.html_safe, transaction %></td> 
+       <td><%= link_to group.icon.html_safe, group %></td> 
 
     <% end %>
 
@@ -44,6 +44,9 @@
 </table>
 
 <br>
+<div>
+  <%= link_to 'External Transactions', unassigned_path, class: 'btn btn-success text-light' %>
+<%= link_to 'Internal Transactions', assigned_path, class: 'btn btn-primary text-light' %>
+</div>
+</div>
 
-<%= link_to 'External Transactions', unassigned_path %>
-<%= link_to 'Internal Transactions', assigned_path %>

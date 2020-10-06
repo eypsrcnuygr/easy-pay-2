@@ -1,39 +1,41 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-<div>
-  <h3><%= link_to 'These are my internal transactions', assigned_path %></h3>
-<% @internal_transactions.each do |transaction| %>
-  <ul>
-    <li><%= transaction.name %></li>
-  </ul>
-<% end %>
-</div>
-
-<div>
-  <h3><%= link_to 'These are my external transactions', unassigned_path %></h3>
-  
-  <% @external_transactions.each do |transaction| %>
-    <ul>
+<div class="text-center w-50 mx-auto bg-light shadow pt-4">
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
+  <div>
+    <h3><%= link_to 'These are my internal transactions', assigned_path %></h3>
+  <% @internal_transactions.each do |transaction| %>
+    <ul class="list-unstyled">
       <li><%= transaction.name %></li>
     </ul>
   <% end %>
-</div>
-
-<div>
-  <h3><%= link_to 'These are all the groups', groups_path %></h3>
-  <% @groups.each_with_index do |group, index| %>
-    <ul>
-   
-      <li><%= link_to group.name, group %>|||<%= raw group.icon %></li>
+  </div>
+  
+  <div>
+    <h3><%= link_to 'These are my external transactions', unassigned_path %></h3>
+    
+    <% @external_transactions.each do |transaction| %>
+      <ul class="list-unstyled">
+        <li><%= transaction.name %></li>
+      </ul>
+    <% end %>
+  </div>
+  
+  <div>
+    <h3><%= link_to 'These are all the groups', groups_path %></h3>
+    <% @groups.each_with_index do |group, index| %>
+      <ul class="list-unstyled">
      
-    </ul>
-  <% end %>
+        <li><%= link_to group.name, group, class: 'mx-3' %><%= raw group.icon %></li>
+       
+      </ul>
+    <% end %>
+  </div>
+<div class="mb-4">
+  <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-success text-light' %> |
+  <%= link_to 'Back', users_path, class: 'btn btn-primary text-light' %>
 </div>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+ 
+</div>

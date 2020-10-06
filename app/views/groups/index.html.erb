@@ -1,30 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="bg-light my-4 p-4 shadow">
+  <h1>Groups</h1>
 
-<h1>Groups</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Icon</th>
-      <th>Created At</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @groups.each do |group| %>
+  <table class="w-100">
+    <thead>
       <tr>
-        <td><%= link_to group.name, group %></td>
-        <td><%= raw group.icon %></td>
-        <td><%= group.created_at %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Icon</th>
+        <th>Created At</th>
+        <th colspan="4"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= link_to group.name, group %></td>
+          <td><%= link_to group.icon.html_safe, edit_group_path(group) %></td>
+          <td><%= group.created_at %></td>
+          
+          <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  <div>
+    <%= link_to 'New Group', new_group_path, class: 'btn btn-success text-light' %>
+  </div>
+ 
+</div>
 
-<br>
-
-<%= link_to 'New Group', new_group_path %>

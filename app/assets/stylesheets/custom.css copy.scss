@@ -1,6 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-
+html {
+  font-size: 18px;
+} 
 
 body {
   background-color: rgb(197, 197, 197) !important;
@@ -8,7 +10,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+  color: #434b54 !important;
+  & table {
+    font-size: 18px;
+
+    & td {
+      font-size: 18px;
+    }
+  }
+
+  & ul {
+    font-size: 16px;
+  }
+
+  & p {
+    font-size: 16px;
+  }
   & .general-form {
     font-size: 1rem !important;
     height: 400px;
@@ -19,6 +36,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start !important;
+    background-color: #3778c2;
     
     & ul {
       font-size: 1rem !important;

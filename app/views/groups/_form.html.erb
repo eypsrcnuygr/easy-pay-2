@@ -1,4 +1,6 @@
-<%= form_with(model: group, local: true) do |form| %>
+
+<div class="w-50 bg-light mx-auto shadow my-4 py-4 px-4 general-form">
+  <%= form_with(model: group, local: true) do |form| %>
   <% if group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -22,6 +24,11 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: 'btn btn-success' %>
   </div>
 <% end %>
+<div>
+  <%= link_to 'Show', @group, class: 'btn btn-success text-light' %> 
+<%= link_to 'Back', groups_path, class: 'btn btn-primary text-light' %>
+</div>
+</div>

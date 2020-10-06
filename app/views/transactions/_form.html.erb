@@ -1,16 +1,17 @@
-<%= form_for @transaction do |form| %>
+<div class="w-50 bg-light mx-auto shadow my-4 py-4 px-4 general-form">
+  <%= form_for @transaction do |form| %>
   <% if transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
 
-      <ul>
-        <% transaction.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul>
+      <% transaction.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
-<% if logged_in? %>
+  <% if logged_in? %>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -21,19 +22,31 @@
     <%= form.text_field :amount %>
   </div>
 
-    
-    <div class="d-flex">
-      <%= form.collection_check_boxes :groups, Group.all, :id, :name do |b| %>
-      <div class="collection-check-box" style='display:flex'>
-      <%= b.check_box %>
-      <%= b.label %>
-    </div>
-<% end %> 
-    </div>
 
+  <div class="d-flex">
+    <%= form.collection_check_boxes :groups, current_user.groups, :id, :name do |b| %>
+    <div class="collection-check-box" style='display:flex'>
+      <div>
+        <%= b.check_box %>
+      </div>
+      <div class="mr-3">
+        <%= b.label %>
+      </div>
+      
+    </div>
+    <% end %>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: 'btn btn-success'%>
   </div>
-<% end %>
-<% end %>
+  
+
+  <% end %>
+  <% end %>
+
+  <div>
+    <%= link_to 'Show', @transaction, class: 'btn btn-success text-light' %> 
+<%= link_to 'Back', transactions_path, class: 'btn btn-primary text-light' %> 
+<%= link_to 'Destroy', @transaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %>
+  </div>
+</div>
