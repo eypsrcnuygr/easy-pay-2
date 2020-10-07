@@ -2,7 +2,7 @@
 
 html {
   font-size: 18px;
-} 
+}
 
 body {
   background-color: rgb(197, 197, 197) !important;
@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   color: #434b54 !important;
+
   & table {
     font-size: 18px;
 
@@ -26,6 +27,7 @@ body {
   & p {
     font-size: 16px;
   }
+
   & .general-form {
     font-size: 1rem !important;
     height: 400px;
@@ -37,7 +39,7 @@ body {
     flex-direction: column;
     align-items: flex-start !important;
     background-color: #3778c2 !important;
-    
+
     & ul {
       font-size: 1rem !important;
     }
@@ -46,19 +48,16 @@ body {
   & .jumbotron {
     margin-top: 2%;
     opacity: 0.8;
-    background-image: asset-url("/assets/images/jumbo.jpg");
+    background-image: url("/assets/images/jumbo.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 70vh;
-
-
   }
 }
 
 @media only screen and (max-device-width: 768px) {
   body {
-
     & .jumbotron {
       height: 40vh;
     }
@@ -70,7 +69,6 @@ body {
     }
 
     & nav {
-
       & ul {
         font-size: 1.2rem !important;
       }
@@ -80,5 +78,4 @@ body {
       }
     }
   }
-
 }
