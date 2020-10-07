@@ -1,24 +1,69 @@
-# README
+# Easy-Pay
+This is a demo app for making some transactions depending on your choices.<br>
+The project is a part of Microverse curriculum.<br>
+![screenshot](./public/assets/images/jumbo.jpg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Built With
+* Ruby
+* Rails
+* Rubocop
+* Bootstrap
 
-Things you may want to cover:
+## Video Explanation
 
-* Ruby version
+Here is the [video explanation]() of this project.
 
-* System dependencies
+## Prerequisities
 
-* Configuration
+To get this project up and running locally, you must already have ruby installed on your computer.
 
-* Database creation
+## Getting Started
 
-* Database initialization
+**To get this project set up on your local machine, follow these simple steps:**
 
-* How to run the test suite
+**Step 1**<br>
+Navigate through the local folder where you want to clone the repository and write<br>
+``` git clone git@github.com:eypsrcnuygr/easy-pay-2.git```. It will clone the repo to your local folder.<br>
+or with https<br>
+```git clone https://github.com/eypsrcnuygr/easy-pay-2.git```.<br>
+**Step 2**<br>
+Run ```cd easy-pay-2```<br>
+**Step 3**<br>
+Run ```bundle install``` to get the necesary gems.<br>
+**Step 4**<br>
+Run ```rails db:migrate``` to make the migrations and ready your database.<br>
+**Step5**<br>
+Run ```rails s``` go to 'http://localhost:3000/' at your browser.<br>
+**Step6**<br>
+From the home page you can sign up and crete groups with the help of the [Font Awesome](https://fontawesome.com/) and create transactions.<br>
+**Step7**<br>
+Enjoy<br>
+## Authors
 
-* Services (job queues, cache servers, search engines, etc.)
+👤 **Eyüp Sercan UYGUR**
 
-* Deployment instructions
+-   Github: [@eypsrcnuygr](https://github.com/eypsrcnuygr)
+-   Twitter: [@eypsrcnuygr](https://twitter.com/eypsrcnuygr)
+-   LinkedIn: [eypsrcnuygr](https://www.linkedin.com/in/eypsrcnuygr/)
+-   Gmail: [sercanuygur@gmail.com](sercanuygur@gmail.com)
 
-* ...
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Issues
+
+For issues [check](https://github.com/eypsrcnuygr/easy-pay-2/issues).
+
+## Acknowledgments
+
+-   This Project was part of an assignment available on Microverse.
+-   Our thanks to Microverse and all our peers and colleagues there.
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
