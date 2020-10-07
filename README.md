@@ -11,7 +11,11 @@ The project is a part of Microverse curriculum.<br>
 
 ## Video Explanation
 
-Here is the [video explanation]() of this project.
+Here is the [video explanation](https://www.loom.com/share/d4d4ee20754740bca3b062f7e9a24e3f) of this project.
+
+## Live Link
+
+Here is the [live link](https://easy-pay-sercan.herokuapp.com/) of this project.
 
 ## Prerequisities
 
