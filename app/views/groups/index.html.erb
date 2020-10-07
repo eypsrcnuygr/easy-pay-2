@@ -7,7 +7,8 @@
         <th>Name</th>
         <th>Icon</th>
         <th>Created At</th>
-        <th colspan="4"></th>
+        <th>User</th>
+        <th colspan="5"></th>
       </tr>
     </thead>
   
@@ -17,8 +18,8 @@
           <td><%= link_to group.name, group %></td>
           <td><%= link_to group.icon.html_safe, edit_group_path(group) %></td>
           <td><%= group.created_at %></td>
+          <td><%= group.user.name %></td>
           
-          <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %></td>
         </tr>
       <% end %>
     </tbody>

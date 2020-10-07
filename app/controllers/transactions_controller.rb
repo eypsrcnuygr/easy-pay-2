@@ -65,8 +65,27 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
+ 
+    @transaction.author = current_user
+    @transaction.groups.clear
+    @array = []
+    if transaction_params[:groups].length == 1
+      @transaction.transaction_status = false
+    else
+      @transaction.transaction_status = true
+    end
     respond_to do |format|
-      if @transaction.update(transaction_params)
+      transaction_params.slice(:groups).values.each do |x|
+        x.each do |y|
+          if y.empty?
+          else
+            @array << y.to_i
+          end
+        end
+        @transaction.groups << Group.find(@array)
+      end
+      if @transaction.update(transaction_params.except(:groups))
+        
         format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
         format.json { render :show, status: :ok, location: @transaction }
       else

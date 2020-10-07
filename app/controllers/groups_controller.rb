@@ -5,13 +5,13 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all.group('groups.id').group(:name).where(user_id: session[:author_id])  
+    @groups = Group.all.group('groups.id').group(:name).includes(:user).order('created_at DESC')
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
-    @groups = current_user.groups.where(name: @group.name)
+    @groups = Group.distinct(:name).where(name: @group.name).includes(:group_transactions, :transactions, :user)
     
   end
 

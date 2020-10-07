@@ -16,12 +16,21 @@
     <ul>
       <li><%= transaction.name %></li>
     </ul>
-    
+
     <% end %>
     <% end %>
   </p>
+  <% @groups.each do |group| %>
+  <% if group.user == current_user %>
   <div>
-    <%= link_to 'Edit', edit_group_path(@group), class: 'btn btn-success text-light' %> 
+    <%= link_to 'Edit', edit_group_path(@group), class: 'btn btn-success text-light' %>
+    <%= link_to 'Back', groups_path, class: 'btn btn-primary text-light' %>
+   <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %>
+  </div>
+<% else %>
+  <div>
     <%= link_to 'Back', groups_path, class: 'btn btn-primary text-light' %>
   </div>
+  <% end %>
+  <% end %>
 </div>

@@ -24,7 +24,7 @@
   </div>
   
   <div>
-    <h3><%= link_to 'These are all the groups', groups_path %></h3>
+    <h3><%='These are all the groups created by the user' %></h3>
     <% @groups.each_with_index do |group, index| %>
       <ul class="list-unstyled">
      
@@ -32,6 +32,7 @@
        
       </ul>
     <% end %>
+    <h5><%= link_to 'All Groups', groups_path %></h5>
   </div>
 <div class="mb-4">
   <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-success text-light' %> |
