@@ -22,7 +22,7 @@
     <tr>
       <td>This is the logged in user: <%= current_user.name %></td>
       <td><%= link_to 'Show', current_user, class: 'btn btn-success text-light' %></td>
-      <td><%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary text-light' %></td>
+      <td><%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary text-light' if current_user.provider.nil? %></td>
       <td><%= link_to 'Destroy', current_user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %></td>
     </tr>
 
