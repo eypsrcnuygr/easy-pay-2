@@ -24,11 +24,16 @@
   </div>
 
   <div class="actions">
+    <% if @group.new_record? %> 
     <%= form.submit 'Submit', class: 'btn btn-success' %>
+  <% elsif @group.user == current_user %>
+  <%= form.submit 'Submit', class: 'btn btn-success' %>
+    <% end %>
   </div>
 <% end %>
 <div>
-  <%= link_to 'Show', @group, class: 'btn btn-success text-light' %> 
+  <%= link_to 'Show', @group, class: 'btn btn-success text-light' %>
 <%= link_to 'Back', groups_path, class: 'btn btn-primary text-light' %>
+
 </div>
 </div>
