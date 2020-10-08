@@ -1,5 +1,5 @@
-  <div>
-    <h3><%= link_to 'These are my internal transactions', assigned_path %></h3>
+  <div class="card-body">
+    <h5><%= link_to 'These are my internal transactions', assigned_path %></h5>
   <% @internal_transactions.each do |transaction| %>
     <ul class="list-unstyled">
       <li><%= transaction.name %></li>

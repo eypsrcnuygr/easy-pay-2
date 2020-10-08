@@ -30,4 +30,13 @@ module TransactionsHelper
       render 'not_authorized'
     end
   end
+
+  def transaction_id_creator(obj)
+    @obj = obj
+    if obj.author == current_user
+      render 'logged_in_buttons'
+    else
+      render 'not_logged_in_buttons'
+    end
+  end
 end
