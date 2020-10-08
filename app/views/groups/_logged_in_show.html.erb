@@ -1,5 +1,6 @@
 <div class="w-50 bg-light mx-auto shadow my-4 py-4 px-4 ">
-  <p>
+  <div class="text-center">
+      <p>
     <strong>Name:</strong>
     <%= @group.name %>
   </p>
@@ -13,12 +14,14 @@
     <strong>Transactions:</strong>
     <% @groups.each do |group| %>
     <% group.transactions.each do |transaction| %>
-    <ul>
-      <li><%= transaction.name %></li>
+    <ul class="list-unstyled">
+      <li><%= link_to transaction.name, transaction_path(transaction) %></li>
     </ul>
 
     <% end %>
     <% end %>
   </p>
   <%= current_user_groups? %>
+  </div>
+
 </div>

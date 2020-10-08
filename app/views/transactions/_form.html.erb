@@ -37,7 +37,7 @@
     <% end %>
   </div>
   <div class="actions">
-    <%= form.submit 'Submit', class: 'btn btn-success'%>
+    <%= form.submit 'Submit', class: 'btn btn-success' if @transaction.author == current_user%>
   </div>
   <% end %>
   <% end %>

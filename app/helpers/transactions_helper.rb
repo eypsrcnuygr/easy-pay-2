@@ -16,7 +16,7 @@ module TransactionsHelper
   end
 
   def buttons_for_logged_user?
-    if logged_in?
+    if logged_in? && @transaction.author == current_user
       render 'buttons_for_logged_user'
     else
       render 'not_authorized'
