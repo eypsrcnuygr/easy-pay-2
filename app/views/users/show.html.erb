@@ -3,39 +3,10 @@
     <strong>Name:</strong>
     <%= @user.name %>
   </p>
-  <div>
-    <h3><%= link_to 'These are my internal transactions', assigned_path %></h3>
-  <% @internal_transactions.each do |transaction| %>
-    <ul class="list-unstyled">
-      <li><%= transaction.name %></li>
-    </ul>
-  <% end %>
-  </div>
-  
-  <div>
-    <h3><%= link_to 'These are my external transactions', unassigned_path %></h3>
-    
-    <% @external_transactions.each do |transaction| %>
-      <ul class="list-unstyled">
-        <li><%= transaction.name %></li>
-      </ul>
-    <% end %>
-  </div>
-  
-  <div>
-    <h3><%='These are all the groups created by the user' %></h3>
-    <% @groups.each_with_index do |group, index| %>
-      <ul class="list-unstyled">
-     
-        <li><%= link_to group.name, group, class: 'mx-3' %><%= raw group.icon %></li>
-       
-      </ul>
-    <% end %>
-    <h5><%= link_to 'All Groups', groups_path %></h5>
-  </div>
-<div class="mb-4">
-  <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-success text-light' if @user.provider.nil? %> |
-  <%= link_to 'Back', users_path, class: 'btn btn-primary text-light' %>
-</div>
+  <%= internal_transactions_exist? %>
+  <%= external_transactions_exist? %>
+  <%= groups_exist? %>
+  <p><%= link_to 'All Groups', groups_path, class: 'btn btn-success' %></p>
+  <%= render 'buttons_for_show' %>
  
 </div>

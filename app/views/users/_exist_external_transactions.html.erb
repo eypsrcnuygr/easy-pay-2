@@ -1,0 +1,9 @@
+<div>
+  <h3><%= link_to 'These are my external transactions', unassigned_path %></h3>
+  
+  <% @external_transactions.each do |transaction| %>
+    <ul class="list-unstyled">
+      <li><%= transaction.name %></li>
+    </ul>
+  <% end %>
+</div>

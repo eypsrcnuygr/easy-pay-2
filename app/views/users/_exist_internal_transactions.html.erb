@@ -1,0 +1,12 @@
+  <div>
+    <h3><%= link_to 'These are my internal transactions', assigned_path %></h3>
+  <% @internal_transactions.each do |transaction| %>
+    <ul class="list-unstyled">
+      <li><%= transaction.name %></li>
+    </ul>
+  <% end %>
+  </div>  
+
+
+ 
+
