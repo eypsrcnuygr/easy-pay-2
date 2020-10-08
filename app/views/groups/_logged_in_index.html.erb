@@ -1,0 +1,34 @@
+<div class="bg-light my-4 p-4 shadow">
+  <h1>Groups</h1>
+
+  <table class="w-100">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Icon</th>
+        <th>Created At</th>
+        <th>User</th>
+        <th colspan="5"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= link_to group.name, group %></td>
+          <td><%= link_to group.icon.html_safe, edit_group_path(group) %></td>
+          <td><%= group.created_at %></td>
+          <td><%= group.user.name %></td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  <div>
+    <%= link_to 'New Group', new_group_path, class: 'btn btn-success text-light' %>
+  </div>
+ 
+</div>
+
