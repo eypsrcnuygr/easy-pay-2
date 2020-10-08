@@ -11,7 +11,7 @@ module GroupsHelper
     if @group.user == current_user
       render 'current_user_buttons'
     else
-      render 'back_buttons'
+      render 'back_button'
     end
   end
 
@@ -32,7 +32,7 @@ module GroupsHelper
   end
 
   def logged_in_edit?
-    if logged_in?
+    if logged_in? && @group.user == current_user
       render 'logged_in_edit'
     else
       render 'not_authorized'

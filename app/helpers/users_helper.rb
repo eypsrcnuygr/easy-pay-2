@@ -44,4 +44,12 @@ module UsersHelper
       render 'not_authorized'
     end
   end
+
+  def logged_in_edit?
+    if logged_in?
+      render 'logged_in_edit'
+    else
+      render 'not_authorized'
+    end
+  end
 end

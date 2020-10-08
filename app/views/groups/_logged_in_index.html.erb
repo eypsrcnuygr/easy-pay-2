@@ -16,7 +16,7 @@
       <% @groups.each do |group| %>
         <tr>
           <td><%= link_to group.name, group %></td>
-          <td><%= link_to group.icon.html_safe, edit_group_path(group) %></td>
+          <td><%= group.icon.html_safe %></td>
           <td><%= group.created_at %></td>
           <td><%= group.user.name %></td>
           
