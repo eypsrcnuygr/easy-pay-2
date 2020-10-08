@@ -1,32 +1,25 @@
 <div class="bg-light my-4 p-4 shadow">
-  <h1>Groups</h1>
-
-  <table class="w-100">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Icon</th>
-        <th>Created At</th>
-        <th>User</th>
-        <th colspan="5"></th>
-      </tr>
-    </thead>
+  <h1 class="text-center">Groups</h1>
+  <% @groups.each do |group| %>
+<div class="card my-4 w-50 mx-auto text-center">
   
-    <tbody>
-      <% @groups.each do |group| %>
-        <tr>
-          <td><%= link_to group.name, group %></td>
-          <td><%= group.icon.html_safe %></td>
-          <td><%= group.created_at %></td>
-          <td><%= group.user.name %></td>
-          
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
+  <p><%= group.icon.html_safe %></p>
+  <div class="card_body">
+    <h5>Group name: <%= group.name %></h5>
+    <% group.transactions.each do |transaction| %>
+    <ul>
+      <li>
+        Transaction name: <%= transaction.name %>
+      </li>
+    </ul>
+  <% end %>
+  <p>The user: <%= group.user.name %></p>
+  </div>
+  <%= group_id_creator(group) %>
+</div>
+<% end %>
   <br>
-  <div>
+  <div class="text-center">
     <%= link_to 'New Group', new_group_path, class: 'btn btn-success text-light' %>
   </div>
  
