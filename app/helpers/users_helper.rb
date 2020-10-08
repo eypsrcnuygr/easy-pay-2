@@ -6,7 +6,7 @@ module UsersHelper
   end
 
   def internal_transactions_exist?
-    if @internal_transactions.length == 0
+    if @internal_transactions.length.zero?
       render 'non_exist_internal_transactions'
     else
       render 'exist_internal_transactions'
@@ -14,7 +14,7 @@ module UsersHelper
   end
 
   def external_transactions_exist?
-    if @external_transactions.length == 0
+    if @external_transactions.length.zero?
       render 'non_exist_external_transactions'
     else
       render 'exist_external_transactions'
@@ -22,12 +22,26 @@ module UsersHelper
   end
 
   def groups_exist?
-    if @groups.length == 0
+    if @groups.length.zero?
       render 'non_exist_groups'
     else
       render 'exist_groups'
     end
+  end
 
-   
+  def logged_in_index?
+    if logged_in?
+      render 'logged_in_index'
+    else
+      render 'not_authorized'
+    end
+  end
+
+  def logged_in_show?
+    if logged_in?
+      render 'logged_in_show'
+    else
+      render 'not_authorized'
+    end
   end
 end

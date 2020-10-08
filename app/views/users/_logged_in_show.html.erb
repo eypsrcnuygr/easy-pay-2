@@ -1,0 +1,12 @@
+<div class="text-center w-50 mx-auto bg-light shadow pt-4">
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
+  <%= internal_transactions_exist? %>
+  <%= external_transactions_exist? %>
+  <%= groups_exist? %>
+  <p><%= link_to 'All Groups', groups_path, class: 'btn btn-success mt-4' %></p>
+  <%= render 'buttons_for_show' %>
+ 
+</div>

@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @internal_transactions = current_user.transactions.where(transaction_status: true)
-    @external_transactions = current_user.transactions.where(transaction_status: false)
+    @internal_transactions = current_user.transactions.where(transaction_status: true) if current_user
+    @external_transactions = current_user.transactions.where(transaction_status: false) if current_user
     @groups = Group.all.select(:name, :id, :icon).group('groups.id').group(:name).where(user_id: session[:author_id])
   end
 

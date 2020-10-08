@@ -44,9 +44,5 @@
   <% end %>
   <% end %>
 
-  <div>
-    <%= link_to 'Show', @transaction, class: 'btn btn-success text-light' %> 
-<%= link_to 'Back', transactions_path, class: 'btn btn-primary text-light' %> 
-<%= link_to 'Destroy', @transaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %>
-  </div>
+  <%= buttons_for_logged_user? %>
 </div>

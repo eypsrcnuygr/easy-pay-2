@@ -1,0 +1,34 @@
+<div class="w-50 bg-light mx-auto shadow my-4 py-4 px-4">
+  <p>
+    <strong>User:</strong>
+    <%= @transaction.author.name %>
+  </p>
+  
+  <p>
+    <strong>Transaction name:</strong>
+    <%= @transaction.name %>
+  </p>
+  
+  <p>
+    <strong>Group Name:</strong>
+    <% @groups.each do |group| %>
+      <%= link_to group.name, group_path(group) %>
+      <%= raw group.icon %>
+  <% end %>
+  
+  </p>
+  
+  <p>
+    <strong>Transaction Status:</strong>
+    <%= @transaction.transaction_status %>
+  </p>
+  
+  <p>
+    <strong>Amount:</strong>
+    <%= @transaction.amount %>
+  </p>
+  <div>
+    <%= link_to 'Edit', edit_transaction_path(@transaction), class: 'btn btn-success text-light' %> 
+  <%= link_to 'Back to All Transactions', transactions_path, class: 'btn btn-primary text-light' %>
+  </div>
+</div>
