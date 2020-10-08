@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include ApplicationHelper
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update]
 
   def index
     @users = User.all
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    current_user.destroy
     session[:author_id] = nil
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
