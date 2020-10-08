@@ -29,7 +29,6 @@ body {
   }
 
   & .general-form {
-    font-size: 1rem !important;
     height: 400px;
     padding-top: 4%;
   }
@@ -59,12 +58,12 @@ body {
 @media only screen and (max-device-width: 768px) {
   body {
     & .jumbotron {
-      height: 40vh;
+      height: 100vh;
     }
 
     & .general-form {
       height: 50vh !important;
-      font-size: 2rem !important;
+      font-size: 1.5rem !important;
       padding-top: 8%;
     }
 
@@ -76,6 +75,9 @@ body {
       & button {
         font-size: 1.7rem !important;
       }
+    }
+    li, a, h5, input, td, p {
+      font-size: 24px !important;
     }
   }
 }
