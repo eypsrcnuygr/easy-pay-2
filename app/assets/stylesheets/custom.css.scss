@@ -11,6 +11,8 @@ body {
   display: flex;
   flex-direction: column;
   color: white !important;
+  margin-left: 0 !important;
+  margin-right: 0!important;
 
   & table {
     font-size: 18px;
@@ -31,6 +33,7 @@ body {
   & .general-form {
     height: 400px;
     padding-top: 4%;
+    color: #434b54 !important;
   }
 
   & .navbar-c {
@@ -60,6 +63,12 @@ body {
       display: flex;
       flex-direction: column;
 
+      & .general-form {
+        height: 400px;
+        padding-top: 4%;
+        color: #434b54 !important;
+      }
+
       & .button {
         width: 100%;
         
@@ -79,6 +88,19 @@ body {
       height: 50vh !important;
       font-size: 1.5rem !important;
       padding-top: 8%;
+      
+      & input {
+        height: 50px;
+      }
+
+     & .actions {
+      
+      & input {
+        height: 75px;
+        width: 200px;
+        font-size: 35px !important;
+      }
+     }
     }
 
     & nav {
@@ -98,6 +120,12 @@ body {
     p {
       font-size: 24px !important;
     }
-  
+    & footer {
+      & a {
+        font-size: 18px !important;
+      }
+    }
   }
+
+ 
 }

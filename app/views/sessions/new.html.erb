@@ -2,16 +2,16 @@
 
 <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
 
-<div class="text-center border border-dark w-lg-50 w-75 mx-auto mt-4 bg-light shadow general-form">
+<div class="text-center w-100 mx-auto mt-4 bg-light shadow general-form">
   <h1>Login</h1>
-  <div class="field">
+  <div class="field w-100">
     <%= form.label :name, class: 'font-weight-bold' %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'w-75 border-0' %>
   </div>
 
   <div class="field">
     <%= form.label :password, class: 'font-weight-bold' %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: 'w-75 border-0' %>
   </div>
 
   <div class="actions">
