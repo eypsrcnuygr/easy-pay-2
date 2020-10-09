@@ -1,5 +1,5 @@
 
-<div class="w-75 bg-light mx-auto shadow my-4 py-4 px-4 general-form">
+<div class="w-100 bg-light mx-auto shadow my-4 py-4 px-4 general-form text-center">
   <%= form_with(model: group, local: true) do |form| %>
   <% if group.errors.any? %>
     <div id="error_explanation">
@@ -15,12 +15,12 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'input border-0 w-75 text-center' %>
   </div>
 
   <div class="field">
     <%= form.label :icon %>
-    <%= raw form.text_field :icon %>
+    <%= raw form.text_field :icon, class: 'input border-0 w-75 text-center' %>
   </div>
 
   <div class="actions">
@@ -32,8 +32,8 @@
   </div>
 <% end %>
 <div>
-  <%= link_to 'Show', @group, class: 'btn btn-success text-light' %>
-<%= link_to 'Back', groups_path, class: 'btn btn-primary text-light' %>
+  <%= link_to 'Show', @group, class: 'btn btn-info text-light button' %>
+<%= link_to 'Back', groups_path, class: 'btn btn-primary text-light button' %>
 
 </div>
 </div>
