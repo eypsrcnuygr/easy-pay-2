@@ -1,5 +1,6 @@
 # Easy-Pay
-This is a demo app for making some transactions depending on your choices. The project is a part of Microverse curriculum.<br>
+This is a demo app for making some transactions depending on your choices.<br>
+The project is a part of Microverse curriculum.<br>
 ![screenshot](./public/assets/images/Screenshot1.png)
 ![screenshot](./public/assets/images/Screenshot2.png)<br>
 ![screenshot](./public/assets/images/Screenshot3.png)<br>
@@ -14,7 +15,7 @@ This is a demo app for making some transactions depending on your choices. The p
 
 ## Video Explanation
 
-Here is the [video explanation]() of this project.
+Here is the [video explanation](https://www.loom.com/share/ba3f0ea52fe843fd82c58034235d4179) of this project.
 
 ## Live Link
 
@@ -74,6 +75,8 @@ At the transaction index page 'author', 'group_transactions' 'groups' are includ
 - There are 33 tests in total.
 - There are two folders, one is for unit tests which is '/spec/models' that is responsible to test 'group', 'transaction', 'user' models.
 - '/spec/features' folder has 3 files that is responsible for 'users', 'transactions' and 'groups' actions.
+- The test cases cover the login, signup, create transaction, create group, model validations and associations.
+- For testing all you need to do is run ```rspec``` in your cloned folder.
 
 ## Authors
 
