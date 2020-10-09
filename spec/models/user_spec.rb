@@ -20,7 +20,6 @@ RSpec.describe User, type: :model do
       subject.password_digest = nil
       expect(subject).to_not be_valid
     end
-
   end
 
   # Associations testing
