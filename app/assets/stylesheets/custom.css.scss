@@ -44,7 +44,7 @@ body {
   }
 
   & .custom-jumbotron {
-    margin-top: 2%;
+
     opacity: 0.8;
     background-image: url("/assets/images/jumbo.jpg");
     background-position: center center;
@@ -68,11 +68,17 @@ body {
       font-size: 30px !important;
     }
 
+    & .button3 {
+      width: 75vw;
+      height: 80px;
+      font-size: 40px !important;
+    }
+
     & a, li {
       font-size: 25px !important;
     }
     
-    & ul {
+    & ul, p {
       line-height: 2.25rem;
     }
 
@@ -81,6 +87,7 @@ body {
       margin-top: 0;
       display: flex;
       flex-direction: column;
+      align-items: center;
 
       & .general-form {
         height: 400px;
