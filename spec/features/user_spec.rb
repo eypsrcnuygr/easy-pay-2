@@ -17,6 +17,12 @@ RSpec.feature "Users", type: :feature do
     expect(page).to have_content('Name')
     expect(page).to have_content('Amount')
   end
+  it 'allows user to navigate to new group page' do
+    click_link 'All Groups'
+    click_link 'New Group'
+    expect(page).to have_content('Name')
+    expect(page).to have_content('Icon')
+  end
   it 'allows user to log out' do
     click_link 'Logout'
     expect(page).to have_content('logged out')
