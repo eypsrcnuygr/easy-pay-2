@@ -22,7 +22,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # Associations testing
   context 'Association' do
     it 'Has many transactions' do
       u = User.reflect_on_association(:transactions)

@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature "Groups", type: :feature do
+RSpec.feature 'Groups', type: :feature do
   before(:each) do
     visit signup_path
     within('form') do
       fill_in 'Name', with: 'user1'
-      fill_in 'Password', with: 135792468
+      fill_in 'Password', with: 135_792_468
     end
     click_button 'Create User'
   end

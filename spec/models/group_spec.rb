@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  let(:user) { User.create(name: 'Sercan', password_digest: 12345678) }
+  let(:user) { User.create(name: 'Sercan', password_digest: 12_345_678) }
   context 'validation' do
     subject do
       described_class.new(name: 'Music', icon: '<i class="fas fa-music"></i>', user_id: user.id)
@@ -27,7 +27,6 @@ RSpec.describe Group, type: :model do
     end
   end
 
-  # Associations testing
   context 'Association' do
     it 'Has many transactions' do
       u = Group.reflect_on_association(:transactions)

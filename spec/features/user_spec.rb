@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature do
+RSpec.feature 'Users', type: :feature do
   before(:each) do
     visit signup_path
     within('form') do
       fill_in 'Name', with: 'user1'
-      fill_in 'Password', with: 135792468
+      fill_in 'Password', with: 135_792_468
     end
     click_button 'Create User'
   end
@@ -28,34 +28,56 @@ RSpec.feature "Users", type: :feature do
     expect(page).to have_content('logged out')
     expect(page).to have_content('Login')
   end
+end
+
+RSpec.feature 'Users', type: :feature do
+  before(:each) do
+    visit signup_path
+    within('form') do
+      fill_in 'Name', with: 'user1'
+      fill_in 'Password', with: 135_792_468
+    end
+    click_button 'Create User'
+  end
   it 'allows user to log in' do
     click_link 'Logout'
     click_link 'SignIn'
     within('form') do
       fill_in 'Name', with: 'user1'
-      fill_in 'Password', with: 135792468
+      fill_in 'Password', with: 135_792_468
     end
     click_button 'Sign In'
     expect(page).to have_content('Logged in succesfuly')
     expect(page).to have_content('Logout')
   end
-  it 'prohibits user to to log in with incorrext password' do
+  it 'prohibits user to to log in with incorrect password' do
     click_link 'Logout'
     click_link 'SignIn'
     within('form') do
       fill_in 'Name', with: 'user1'
-      fill_in 'Password', with: 1357924689
+      fill_in 'Password', with: 1_357_924_689
     end
     click_button 'Sign In'
     expect(page).to have_content('There was something wrong with your login information')
     expect { visit(user_path(5)) }.to raise_error(ActiveRecord::RecordNotFound)
   end
-  it 'prohibits user to to log in with incorrext name' do
+end
+
+RSpec.feature 'Users', type: :feature do
+  before(:each) do
+    visit signup_path
+    within('form') do
+      fill_in 'Name', with: 'user1'
+      fill_in 'Password', with: 135_792_468
+    end
+    click_button 'Create User'
+  end
+  it 'prohibits user to to log in with incorrect name' do
     click_link 'Logout'
     click_link 'SignIn'
     within('form') do
       fill_in 'Name', with: 'user'
-      fill_in 'Password', with: 135792468
+      fill_in 'Password', with: 135_792_468
     end
     click_button 'Sign In'
     expect(page).to have_content('There was something wrong with your login information')
@@ -65,6 +87,17 @@ RSpec.feature "Users", type: :feature do
     click_link 'Logout'
     visit(new_transaction_path)
     expect(page).to have_content('You are not authorized to continue')
+  end
+end
+
+RSpec.feature 'Users', type: :feature do
+  before(:each) do
+    visit signup_path
+    within('form') do
+      fill_in 'Name', with: 'user1'
+      fill_in 'Password', with: 135_792_468
+    end
+    click_button 'Create User'
   end
   it 'prevent not-logged in user to navigate through groups' do
     click_link 'Logout'

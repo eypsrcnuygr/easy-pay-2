@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
-  let(:user) { User.create(name: 'Sercan', password_digest: 12345678) }
+  let(:user) { User.create(name: 'Sercan', password_digest: 12_345_678) }
   context 'validation' do
     subject do
       described_class.new(name: 'Buy some food', amount: 350.08, transaction_status: true, author_id: user.id)
@@ -25,10 +25,8 @@ RSpec.describe Transaction, type: :model do
       subject.author_id = nil
       expect(subject).to_not be_valid
     end
-
   end
 
-  # Associations testing
   context 'Association' do
     it 'Has many groups' do
       u = Transaction.reflect_on_association(:groups)

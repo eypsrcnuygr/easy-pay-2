@@ -4,7 +4,8 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
 
   def index
-    @groups = Group.all.group('groups.id').group(:name).includes(:user, :group_transactions, :transactions).order('created_at DESC')
+    @groups = Group.all.group('groups.id').group(:name).includes(:user, :group_transactions, :transactions)
+      .order('created_at DESC')
   end
 
   def show

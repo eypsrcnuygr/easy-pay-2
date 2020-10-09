@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature "Transactions", type: :feature do
+RSpec.feature 'Transactions', type: :feature do
   before(:each) do
     visit signup_path
     within('form') do
       fill_in 'Name', with: 'user1'
-      fill_in 'Password', with: 135792468
+      fill_in 'Password', with: 135_792_468
     end
     click_button 'Create User'
   end
@@ -26,7 +26,17 @@ RSpec.feature "Transactions", type: :feature do
     click_button 'Submit'
     expect(page).to have_content("Name can't be blank")
   end
-  it 'Prohibits user from creating a Transaction without a name' do
+end
+RSpec.feature 'Transactions', type: :feature do
+  before(:each) do
+    visit signup_path
+    within('form') do
+      fill_in 'Name', with: 'user1'
+      fill_in 'Password', with: 135_792_468
+    end
+    click_button 'Create User'
+  end
+  it 'Prohibits user from creating a Transaction without amount' do
     click_link 'New Transaction'
     within('form') do
       fill_in 'Name', with: 'Buy some Cds'
