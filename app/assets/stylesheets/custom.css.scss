@@ -12,7 +12,7 @@ body {
   flex-direction: column;
   color: #434b54 !important;
   margin-left: 0 !important;
-  margin-right: 0!important;
+  margin-right: 0 !important;
 
   & table {
     font-size: 18px;
@@ -44,7 +44,6 @@ body {
   }
 
   & .custom-jumbotron {
-
     opacity: 0.8;
     background-image: url("/assets/images/jumbo.jpg");
     background-position: center center;
@@ -56,8 +55,6 @@ body {
 
 @media only screen and (max-device-width: 768px) {
   body {
-    
-
     & .button {
       width: 300px !important;
       font-size: 35px !important;
@@ -74,12 +71,38 @@ body {
       font-size: 40px !important;
     }
 
-    & a, li {
+    & a,
+    li {
       font-size: 25px !important;
     }
-    
-    & ul, p {
+
+    & ul,
+    p {
       line-height: 2.25rem;
+    }
+
+    a,
+    h5,
+    input,
+    td,
+    p {
+      font-size: 24px !important;
+    }
+
+    & nav {
+      & button {
+        font-size: 2.5rem !important;
+      }
+
+      & a {
+        font-size: 30px !important;
+      }
+    }
+
+    & footer {
+      & a {
+        font-size: 18px !important;
+      }
     }
 
     & .custom-jumbotron {
@@ -90,14 +113,27 @@ body {
       align-items: center;
 
       & .general-form {
-        height: 400px;
-        padding-top: 4%;
+        height: 50vh !important;
+        font-size: 1.5rem !important;
+        padding-top: 8%;
         color: #434b54 !important;
+
+        & input {
+          height: 60px;
+        }
+
+        & .actions {
+          & input {
+            height: 75px;
+            width: 200px;
+            font-size: 35px !important;
+          }
+        }
       }
 
       & .button {
         width: 100%;
-        
+
         & a {
           height: 100px;
           width: 500px;
@@ -105,53 +141,10 @@ body {
         }
       }
 
-      & h1, p {
+      & h1,
+      p {
         font-size: 75px;
       }
     }
-
-    & .general-form {
-      height: 50vh !important;
-      font-size: 1.5rem !important;
-      padding-top: 8%;
-      
-      & input {
-        height: 60px;
-      }
-
-     & .actions {
-      
-      & input {
-        height: 75px;
-        width: 200px;
-        font-size: 35px !important;
-      }
-     }
-    }
-
-    & nav {
-     
-      & button {
-        font-size: 2.5rem !important;
-      }
-
-      & a {
-        font-size: 30px !important;
-      }
-    }
-    a,
-    h5,
-    input,
-    td,
-    p {
-      font-size: 24px !important;
-    }
-    & footer {
-      & a {
-        font-size: 18px !important;
-      }
-    }
   }
-
- 
 }
