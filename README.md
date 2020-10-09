@@ -1,6 +1,5 @@
 # Easy-Pay
-This is a demo app for making some transactions depending on your choices.<br>
-The project is a part of Microverse curriculum.<br>
+This is a demo app for making some transactions depending on your choices. The project is a part of Microverse curriculum.<br>
 ![screenshot](./public/assets/images/Screenshot1.png)
 ![screenshot](./public/assets/images/Screenshot2.png)
 
