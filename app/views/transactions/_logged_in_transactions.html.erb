@@ -1,6 +1,7 @@
 
 <div class="bg-light my-4 p-4 shadow">
   <h1 class="text-center">Transactions</h1>
+  <h4 class="text-center"><%= @total_amount %></h4>
   <% @user_transactions.each do |transaction| %>
   <div class="card my-4 w-75 mx-auto text-center">
    <% transaction.groups.each do |group| %>
