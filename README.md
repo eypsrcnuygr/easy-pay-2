@@ -50,18 +50,25 @@ Enjoy<br>
 
 ## Features
 
-**1**<br>
+**1**
 From the home page you can sign up with name and password or with GitHub. <br>
-**2**<br>
+**2**
 From the home page you can crete groups with the help of [Font Awesome](https://fontawesome.com/) and create transactions.<br>
-**3**<br>
+**3**
 Your created groups will be selectable on new transaction form.<br>
-**4**<br>
+**4**
 From your profile you can click all groups and check all the groups but you can't delete or edit which are not yours'.<br>
-**5**<br>
+**5**
 You can see the transactions of all the groups from 'All Groups'. There you can see other's transactions as well, but can't manipulate them.<br> 
-**6**<br>
+**6**
 You can see your all transactions from 'All Transactions'. You can edit or destroy them.<br>
+**7**
+From 'All Transactions' page you can navigate through external transactions which have no groups, or internal transactions which have groups.<br>
+**8**
+For the N+1 problems:<br>
+At groups show page 'group_transactions', 'transaction' and 'user' are included to the query.<br>
+At the groups index page 'user', 'group_transactions' and 'transactions' are inclueded to the query.<br>
+At the transaction index page 'author', 'group_transactions' 'groups' are included to the query.<br>
 
 ## Test
 - There are 33 tests in total.
