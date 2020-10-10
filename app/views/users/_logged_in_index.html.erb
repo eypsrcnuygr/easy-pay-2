@@ -1,0 +1,27 @@
+
+<div class="w-lg-50 w-100 mx-auto bg-light shadow my-4 py-4 px-3" >
+  <h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th class="font-size-lg">Name</th>
+
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="font-size-lg"><%= user.name %></td>
+      </tr>
+    <% end %>
+      <tr><%= buttons_for_user %></tr>
+  </tbody>
+</table>
+
+<br>
+
+
+</div>

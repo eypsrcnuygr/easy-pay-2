@@ -1,0 +1,23 @@
+<div class="w-100 bg-light mx-auto shadow my-4 py-4 px-4">
+  <div class="text-center">
+
+    <h1>Unassigned</h1>
+    <div class="view-display">
+
+      <% @transactions.sort_by{ |x| x.created_at }.reverse.each do |trans| %>
+      <div class='group-cards'>
+
+
+        <div class='card-text'>
+          <h4><%= link_to trans.name, transaction_path(trans.id) %></h4>
+          <p><%= trans.created_at.strftime("%d %b. %Y") %></p>
+        </div>
+
+      </div>
+      <% end %>
+
+      <div>
+        <%= link_to 'All', transactions_path, class: 'btn btn-success text-light button2' %>
+        <%= link_to 'Assigned', assigned_path, class: 'btn btn-primary text-light button2' %>
+      </div>
+    </div>

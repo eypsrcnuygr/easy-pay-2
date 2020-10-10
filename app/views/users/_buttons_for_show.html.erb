@@ -1,0 +1,4 @@
+<div class="mb-4">
+  <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-success text-light button' if @user.provider.nil? %> |
+  <%= link_to 'Back to All Users', users_path, class: 'btn btn-primary text-light button' %>
+</div>

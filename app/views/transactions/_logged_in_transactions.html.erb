@@ -1,0 +1,26 @@
+
+<div class="bg-light my-4 p-4 shadow">
+  <h1 class="text-center">Transactions</h1>
+  <h4 class="text-center"><%= @total_amount %></h4>
+  <% @user_transactions.each do |transaction| %>
+  <div class="card my-4 w-75 mx-auto text-center">
+   <% transaction.groups.each do |group| %>
+   <p class="mt-3"><%= group.icon.html_safe %></p>
+  <% end %>
+    <div class="card_body">
+      <h5>Transaction name: <%= transaction.name %></h5>
+    <p>The user: <%= transaction.author.name %></p>
+    <p>The amount: <%= transaction.amount %></p>
+    <p>Time created: <%= transaction.created_at %></p>
+    </div>
+    <%= transaction_id_creator(transaction) %>
+  </div>
+  <% end %>
+
+  
+  <br>
+  <div class="text-center">
+    <%= link_to 'External Transactions', unassigned_path, class: 'btn btn-success text-light' %>
+  <%= link_to 'Internal Transactions', assigned_path, class: 'btn btn-primary text-light' %>
+  </div>
+  </div>

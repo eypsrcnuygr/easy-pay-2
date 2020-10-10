@@ -1,0 +1,27 @@
+<div class="w-100 bg-light mx-auto shadow my-4 py-4 px-4 ">
+  <div class="text-center">
+      <p>
+    <strong>Name:</strong>
+    <%= @group.name %>
+  </p>
+
+  <p>
+    <strong>Icon:</strong>
+    <%= raw @group.icon %>
+  </p>
+
+  <p>
+    <strong>Transactions:</strong>
+    <% @groups.each do |group| %>
+    <% group.transactions.each do |transaction| %>
+    <ul class="list-unstyled">
+      <li><%= link_to transaction.name, transaction_path(transaction) %></li>
+    </ul>
+
+    <% end %>
+    <% end %>
+  </p>
+  <%= current_user_groups? %>
+  </div>
+
+</div>
