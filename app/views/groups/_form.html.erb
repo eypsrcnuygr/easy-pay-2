@@ -15,19 +15,19 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, class: 'input border-0 w-75 text-center' %>
+    <%= form.text_field :name, class: 'input border-0 w-75 text-center input' %>
   </div>
 
   <div class="field">
     <%= form.label :icon %>
-    <%= raw form.text_field :icon, class: 'input border-0 w-75 text-center' %>
+    <%= raw form.text_field :icon, class: 'input border-0 w-75 text-center input' %>
   </div>
 
   <div class="actions">
     <% if @group.new_record? %> 
-    <%= form.submit 'Submit', class: 'btn btn-success' %>
+    <%= form.submit 'Submit', class: 'btn btn-success button2' %>
   <% elsif @group.user == current_user %>
-  <%= form.submit 'Submit', class: 'btn btn-success' %>
+  <%= form.submit 'Submit', class: 'btn btn-success button2' %>
     <% end %>
   </div>
 <% end %>

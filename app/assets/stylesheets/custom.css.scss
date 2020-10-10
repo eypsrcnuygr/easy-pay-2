@@ -71,6 +71,13 @@ body {
       font-size: 40px !important;
     }
 
+   & form {
+     & .input {
+       height: 50px;
+       font-size: 30px;
+     }
+   }
+
     & a,
     li {
       font-size: 25px !important;
@@ -79,14 +86,6 @@ body {
     & ul,
     p {
       line-height: 2.25rem;
-    }
-
-    a,
-    h5,
-    input,
-    td,
-    p {
-      font-size: 24px !important;
     }
 
     & nav {
@@ -117,10 +116,6 @@ body {
         font-size: 1.5rem !important;
         padding-top: 8%;
         color: #434b54 !important;
-
-        & input {
-          height: 60px;
-        }
 
         & .actions {
           & input {
