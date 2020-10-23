@@ -1,5 +1,8 @@
 # Easy-Pay
 This is a demo app for making some transactions depending on your choices.<br>
+You can create a transactions and groups for that transactions.<br>
+You can import FontAwesome icons for your groups.<br>
+You can see all the transactions but can edit just your own transactions.<br>
 The project is a part of Microverse curriculum.<br>
 ![screenshot](./public/assets/images/Screenshot1.png)
 ![screenshot](./public/assets/images/Screenshot2.png)<br>
