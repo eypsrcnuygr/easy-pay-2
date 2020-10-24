@@ -4,6 +4,7 @@
 - You can import FontAwesome icons for your groups.<br>
 - You can see all the transactions but can edit just your own transactions.<br>
 - The project is a part of the Microverse curriculum.<br>
+- Built with Rails.<br>
 ![screenshot](./public/assets/images/Screenshot1.png)
 ![screenshot](./public/assets/images/Screenshot2.png)<br>
 ![screenshot](./public/assets/images/Screenshot3.png)<br>
