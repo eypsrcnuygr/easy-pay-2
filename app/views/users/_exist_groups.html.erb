@@ -1,0 +1,10 @@
+<div class="card-body">
+  <h5><%='These are all the groups created by the user' %></h5>
+  <% @groups.each_with_index do |group, index| %>
+    <ul class="list-unstyled">
+   
+      <li><%= link_to group.name, group, class: 'mx-3' %><%= raw group.icon %></li>
+     
+    </ul>
+  <% end %>
+</div>

@@ -1,0 +1,39 @@
+
+<div class="w-100 bg-light mx-auto shadow my-4 py-4 px-4 general-form text-center">
+  <%= form_with(model: group, local: true) do |form| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'input border-0 w-75 text-center input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :icon %>
+    <%= raw form.text_field :icon, class: 'input border-0 w-75 text-center input' %>
+  </div>
+
+  <div class="actions">
+    <% if @group.new_record? %> 
+    <%= form.submit 'Submit', class: 'btn btn-success button2' %>
+  <% elsif @group.user == current_user %>
+  <%= form.submit 'Submit', class: 'btn btn-success button2' %>
+    <% end %>
+  </div>
+<% end %>
+<div>
+  <%= link_to 'Show', @group, class: 'btn btn-info text-light button' %>
+<%= link_to 'Back', groups_path, class: 'btn btn-primary text-light button' %>
+
+</div>
+</div>

@@ -1,0 +1,36 @@
+<div class="w-100 bg-light mx-auto shadow my-4 py-4 px-4">
+  <div class="text-center">
+     <p>
+    <strong>User:</strong>
+    <%= @transaction.author.name %>
+  </p>
+  
+  <p>
+    <strong>Transaction name:</strong>
+    <%= @transaction.name %>
+  </p>
+  
+  <p>
+    <strong>Group Name:</strong>
+    <% @groups.each do |group| %>
+      <%= link_to group.name, group_path(group) %>
+      <%= raw group.icon %>
+  <% end %>
+  
+  </p>
+  
+  <p>
+    <strong>Transaction Status:</strong>
+    <%= @transaction.transaction_status %>
+  </p>
+  
+  <p>
+    <strong>Amount:</strong>
+    <%= @transaction.amount %>
+  </p>
+  <div>
+    <%= buttons_for_logged_user? %>
+  </div> 
+  </div>
+
+</div>

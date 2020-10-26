@@ -1,0 +1,31 @@
+<div class="bg-light my-4 p-4 shadow">
+  <h1 class="text-center">Groups</h1>
+  <% @groups.each do |group| %>
+<div class="card my-4 w-75 mx-auto text-center py-4">
+  
+  <p><%= group.icon.html_safe %></p>
+  <div class="card_body">
+    <h5>Group name: <%= group.name %></h5>
+    <h6><strong>Group total:</strong>  <%= group.transactions.sum(:amount) %></h6>
+    <% group.transactions.each do |transaction| %>
+    <ul class="list-unstyled">
+      <li>
+        Transaction name: <%= transaction.name %>
+      </li>
+      <li>
+        Transaction amount: <%= transaction.amount %>
+      </li>
+    </ul>
+  <% end %>
+  <p>The user: <%= group.user.name %></p>
+  </div>
+  <%= group_id_creator(group) %>
+</div>
+<% end %>
+  <br>
+  <div class="text-center">
+    <%= link_to 'New', new_group_path, class: 'btn btn-success text-light button' %>
+  </div>
+ 
+</div>
+

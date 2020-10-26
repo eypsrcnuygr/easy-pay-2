@@ -1,0 +1,5 @@
+<div class="my-4">
+  <%= link_to 'Show', transaction_path(@obj), class: 'btn btn-success text-light button2' %>
+  <%= link_to 'Edit', edit_transaction_path(@obj), class: 'btn btn-primary text-light button2' %>
+  <%= link_to 'Delete', @obj, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light button2' %>
+</div>

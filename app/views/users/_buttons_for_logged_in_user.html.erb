@@ -1,0 +1,18 @@
+<tr>
+  <td>Logged in user: <%= current_user.name %></td>
+  <td><%= link_to 'Show', current_user, class: 'btn btn-success text-light button2' %></td>
+  <td><%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary text-light button2' if current_user.provider.nil? %></td>
+  <td>
+  <%= form_with( url: delete_user_path, method: :delete, local: true, class: 'mx-auto') do |form| %>
+  <div>
+  
+    <div class="actions">
+      <%= form.submit 'Destroy', class: 'btn btn-danger btn-block my-4 button2' %>
+    </div>
+  </div>
+
+<% end %>
+</td>
+</tr>
+
+
